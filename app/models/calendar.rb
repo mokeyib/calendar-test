@@ -2,14 +2,14 @@ class Calendar
   attr_reader :signed_in
   SPRING_2016_PUBLIC_ID = 'a8elc993pj7mdgeq5m0knbboc4'
   SPRING_2016_MEMBERS_ONLY_ID = '0g4ch638r3bn787bbpi2pbi5hc'
-  RED = '%23FF0000'
-  GREEN = '%23008000'
+  BROWN = '%23A32929'
+  GREEN = "%2328754E"
 
   def initialize
   end
 
   def public_cal
-    "src=#{SPRING_2016_PUBLIC_ID}%40group.calendar.google.com&color=#{RED}&"
+    "src=#{SPRING_2016_PUBLIC_ID}%40group.calendar.google.com&color=#{BROWN}&"
   end
 
   def members_only_cal
