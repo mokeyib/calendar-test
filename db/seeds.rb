@@ -6,4 +6,5 @@ end
 
 User.destroy_all
 
-ingrid_biery = User.create!(name: 'Ingrid Biery', email: 'ingridbiery@gmail.com')
+ingrid_biery = User.create!(name: 'Ingrid Biery', email: 'ingridbiery@gmail.com', password: ENV['DEFAULT_PASSWORD'])
+cuco_help = User.create!(name: 'CUCO', email: 'cucohelp@gmail.com', password: ENV['DEFAULT_PASSWORD'])
