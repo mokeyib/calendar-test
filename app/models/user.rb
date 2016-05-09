@@ -6,7 +6,6 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:google_oauth2]
          
   def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
-    byebug
     data = access_token.info
     user = User.where(:provider => access_token.provider, :uid => access_token.uid ).first
     if user
