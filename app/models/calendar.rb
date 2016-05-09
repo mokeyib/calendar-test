@@ -9,16 +9,14 @@ class Calendar
   def initialize
   end
 
-  def first_cal
-    "src=#{FIRST_ID}%40group.calendar.google.com&color=#{DARK_BLUE}&"
-  end
-
-  def second_cal
-    "src=#{SECOND_ID}%40group.calendar.google.com&color=#{GREEN}&"
+  def cal id, color
+    "src=#{id}%40group.calendar.google.com&color=#{color}&"
   end
 
   def url
-    cals = "#{first_cal}#{second_cal}"
+    cals = cal(FIRST_ID, BROWN)
+    cals += cal(SECOND_ID, GREEN)
+    cals += "src=cucocalendar%40gmail.com&color=#{DARK_BLUE}&"
     "https://calendar.google.com/calendar/embed?title=CUCO%20Calendar&height=600&wkst=1&bgcolor=%23FFFFFF&#{cals}ctz=America%2FNew_York"
   end
 end

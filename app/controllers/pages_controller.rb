@@ -8,10 +8,11 @@ class PagesController < ApplicationController
       'summary' => 'New Event Title',
       'description' => 'The description',
       'location' => 'Location',
-      'start' => { 'dateTime' => DateTime.new(2015, 8, 29, 22, 35, 0) },
-      'end' => { 'dateTime' => DateTime.new(2015, 8, 29, 22, 45, 0) }}
+      'start' => { 'dateTime' => DateTime.new(2016, 5, 20, 22, 35, 0) },
+      'end' => { 'dateTime' => DateTime.new(2016, 5, 20, 22, 45, 0) }}
   
-    client = Google::APIClient.new
+    client = Google::APIClient.new(:application_name => "ib-calendar-test",
+                                   :application_version => "1.0")
     client.authorization.access_token = current_user.token
     service = client.discovered_api('calendar', 'v3')
 
@@ -19,5 +20,6 @@ class PagesController < ApplicationController
                                 :parameters => {'calendarId' => current_user.email, 'sendNotifications' => false},
                                 :body => JSON.dump(@event),
                                 :headers => {'Content-Type' => 'application/json'})
+    redirect_to pages_calendar_path
   end
 end
